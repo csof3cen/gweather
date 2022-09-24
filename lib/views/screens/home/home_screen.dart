@@ -8,6 +8,7 @@ class HomeScreen extends StatelessWidget {
     return Container(
       height: 200,
       color: Colors.red,
+      // child: Center(child: Image.asset("assets/icons/weather-icons/hail 0.png")),
     );
   }
 }
