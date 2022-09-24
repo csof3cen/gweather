@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/sunset_sunrise.dart';
 import 'components/detailed_weather.dart';
 import 'components/date_and_location.dart';
 import 'package:gweather/config/const.dart';
@@ -17,14 +18,18 @@ class HomeScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     DateTime today = DateTime.now();
 
-    return Column(
-      children: [
-        DateAndLocation(today: today),
-        SizedBox(height: kPadding),
-        TemperatureAndGeneralWeather(weather: weather),
-        SizedBox(height: kPadding),
-        DetailedWeather(weather: weather),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          DateAndLocation(today: today),
+          SizedBox(height: kPadding * 3),
+          TemperatureAndGeneralWeather(weather: weather),
+          SizedBox(height: kPadding * 2),
+          DetailedWeather(weather: weather),
+          SizedBox(height: kPadding * 2),
+          SunsetSunrise(weather: weather),
+        ],
+      ),
     );
   }
 }
