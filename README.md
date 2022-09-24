@@ -1,6 +1,6 @@
-# gweather
-
-A new Flutter project.
+# gweather : Good Weather
+![Demo Image](/demo/demo.png)
+A simple realtime weather app using [open-meteo](https://open-meteo.com/) API : a free and open-source weather API. Feel free to fork, contribute and start this repo !
 
 ## Getting Started
 
