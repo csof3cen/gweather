@@ -6,3 +6,5 @@ const name = '';
 Map<String, Widget Function(BuildContext)> routes = {
   homeScreenRoute: (context) => const HomeScreen(),
 };
+
+double kPadding = 20;

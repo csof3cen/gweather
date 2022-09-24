@@ -1,4 +1,6 @@
+import 'home_body.dart';
 import 'package:flutter/material.dart';
+import 'package:gweather/config/const.dart';
 import 'package:gweather/models/weather.dart';
 import 'package:gweather/logic/fetch_data.dart';
 
@@ -20,24 +22,31 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Weather>(
-      future: weatherFuture,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return Column(
-            children: [
-              Text('Température : ${snapshot.data!.temperature}'),
-              Text('Sunrise : ${snapshot.data!.sunrise.hour}'),
-            ],
-          );
-        } else if (snapshot.hasError) {
-          debugPrint(snapshot.error.toString());
-          return Text('${snapshot.error}');
-        }
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Container(
+          margin: EdgeInsets.symmetric(
+            vertical: MediaQuery.of(context).padding.vertical,
+            horizontal: kPadding,
+          ),
+          child: FutureBuilder<Weather>(
+            future: weatherFuture,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                Weather weather = snapshot.data!;
+                return HomeScreenBody(weather: weather);
+              } else if (snapshot.hasError) {
+                debugPrint(snapshot.error.toString());
+                return Text('${snapshot.error}');
+              }
 
-        // By default, show a loading spinner.
-        return const CircularProgressIndicator();
-      },
+              // By default, show a loading spinner.
+              return const CircularProgressIndicator();
+            },
+          ),
+        ),
+      ),
     );
   }
 }
