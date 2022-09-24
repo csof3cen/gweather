@@ -1,1 +1,1 @@
-const homeScreenRoute = "/home";
+const homeScreenRoute = '/home';
