@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gweather/config/const.dart';
 import 'package:gweather/config/route.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() => runApp(const App());
+void main() {
+  initializeDateFormatting();
+  runApp(const App());
+}
 
 class App extends StatelessWidget {
   const App({super.key});

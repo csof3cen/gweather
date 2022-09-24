@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'components/detailed_weather.dart';
+import 'components/date_and_location.dart';
+import 'package:gweather/config/const.dart';
 import 'package:gweather/models/weather.dart';
+import 'components/temperature_and_general_weather.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({
@@ -11,10 +15,15 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime today = DateTime.now();
+
     return Column(
       children: [
-        Text('Température : ${weather.temperature}'),
-        Text('Sunrise : ${weather.sunrise.hour}'),
+        DateAndLocation(today: today),
+        SizedBox(height: kPadding),
+        TemperatureAndGeneralWeather(weather: weather),
+        SizedBox(height: kPadding),
+        DetailedWeather(weather: weather),
       ],
     );
   }

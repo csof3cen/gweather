@@ -24,10 +24,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: kScaffoldBg,
+        colorScheme: const ColorScheme.dark(),
+      ),
       home: Scaffold(
         body: Container(
           margin: EdgeInsets.symmetric(
-            vertical: MediaQuery.of(context).padding.vertical,
+            vertical: MediaQuery.of(context).padding.vertical + kPadding,
             horizontal: kPadding,
           ),
           child: FutureBuilder<Weather>(
@@ -42,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               }
 
               // By default, show a loading spinner.
-              return const CircularProgressIndicator();
+              return const Center(child: CircularProgressIndicator());
             },
           ),
         ),
