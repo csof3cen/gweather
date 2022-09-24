@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="xyz.evenleee.gweather">
    <application
-        android:label="gweather"
+        android:label="GWeather"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
